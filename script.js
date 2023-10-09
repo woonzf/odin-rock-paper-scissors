@@ -72,6 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const playerChoice = document.querySelector("#playerChoice");
     let playerSelection;
 
+    const buttons = playerChoice.querySelectorAll("button");
+
     playerChoice.addEventListener("click", (e) => {
         let target = e.target;
 
@@ -90,19 +92,17 @@ document.addEventListener("DOMContentLoaded", () => {
         game(playerSelection);
 
         // Disable buttons when game ends
-        const buttons = playerChoice.querySelectorAll("button");
-        
         if (playerWin === 5 || computerWin === 5) {
             buttons.forEach(button => {
                 button.disabled = true;
             });
         };
-        
-        // Reload page
-        const reload = document.querySelector("#reload");
+    });
 
-        reload.addEventListener("click", () => {
-            location.reload();
-        });
+    // Reload page
+    const reload = document.querySelector("#reload");
+
+    reload.addEventListener("click", () => {
+        location.reload();
     });
 });
