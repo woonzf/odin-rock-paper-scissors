@@ -6,8 +6,26 @@
         <title>Rock Paper Scissors</title>
 
         <script src="script.js"></script>
+        <link href="styles.css" rel="stylesheet">
     </head>
     <body>
-        <p>Open "Console" to check the game output.</p>
+        <h1>Rock, Paper, Scissors?</h1>
+        <div>
+            <ul id="playerChoice">
+                <li><button id="rock">Rock</button></li>
+                <li><button id="paper">Paper</button></li>
+                <li><button id="scissors">Scissors</button></li>
+            </ul>
+        </div>
+        <div class="round">
+            <div id="playerSelection"></div>
+            <div id="computerSelection"></div>
+            <div id="roundResult"></div>
+        </div>
+        <div class="game">
+            <div id="score"></div>
+            <div id="gameResult"></div>
+        </div>
+        <div><a href="/">Reload</a></div>
     </body>
 </html>
