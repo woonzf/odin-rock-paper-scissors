@@ -36,7 +36,7 @@ function playRound(playerSelection, computerSelection) {
 
     for (let i = 0; i < loseCond.length; i++) {
         if (cond === loseCond[i]) {
-            eResult.textContent = "You lose.";
+            eResult.textContent = "Computer wins!";
             return "lose";
         };
     };
@@ -64,14 +64,13 @@ function game(playerSelection) {
         gameResult.textContent = "You won the game!";
     } 
     else if (computerWin === 5) {
-        gameResult.textContent = "You lost the game.";
+        gameResult.textContent = "Computer won the game!";
     };
 };
 
 document.addEventListener("DOMContentLoaded", () => {
     const playerChoice = document.querySelector("#playerChoice");
     let playerSelection;
-    const buttons = document.querySelectorAll("button");
 
     playerChoice.addEventListener("click", (e) => {
         let target = e.target;
@@ -90,10 +89,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         game(playerSelection);
 
+        // Disable buttons when game ends
+        const buttons = playerChoice.querySelectorAll("button");
+        
         if (playerWin === 5 || computerWin === 5) {
             buttons.forEach(button => {
                 button.disabled = true;
             });
         };
+        
+        // Reload page
+        const reload = document.querySelector("#reload");
+
+        reload.addEventListener("click", () => {
+            location.reload();
+        });
     });
 });
